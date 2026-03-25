@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ALP · 2026 台科大校園徵才博覽會</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    :root{
+      --y:#FAF054;--k:#000;--w:#fff;
+      --g2:#333;--g3:#666;--g4:#999;--g5:#ddd;--g6:#f2f2f2;--g7:#f9f9f9;
+      --red:#D94040;
+      font-family:'Noto Sans TC','Outfit',sans-serif;
+    }
+    body{background:var(--w);color:var(--k);}
+    .topbar{background:var(--k);padding:14px 32px;display:flex;align-items:center;justify-content:space-between;}
+    .logo{font-family:'Outfit',sans-serif;font-weight:900;font-size:22px;letter-spacing:5px;color:var(--w);}
+    .logo em{color:var(--y);font-style:normal;}
+    .tag{background:var(--y);color:var(--k);font-size:11px;font-weight:700;padding:4px 14px;letter-spacing:1px;font-family:'Outfit',sans-serif;}
+    .hero{background:var(--w);padding:48px 32px 44px;border-bottom:4px solid var(--k);}
+    .hero-eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;color:var(--g4);margin-bottom:16px;}
+    .hero-h{font-family:'Outfit',sans-serif;font-weight:900;font-size:clamp(28px,5.5vw,56px);line-height:1.0;color:var(--k);}
+    .hero-h span{background:var(--y);color:var(--k);padding:2px 10px;}
+    .hero-divider{width:60px;height:4px;background:var(--k);margin:20px 0;}
+    .hero-meta{display:flex;gap:0;flex-wrap:wrap;border:1px solid var(--g5);}
+    .hero-m{flex:1;min-width:120px;padding:16px 20px;border-right:1px solid var(--g5);}
+    .hero-m:last-child{border-right:none;}
+    .hero-m label{font-size:9px;font-weight:700;letter-spacing:2px;color:var(--g4);display:block;margin-bottom:6px;text-transform:uppercase;}
+    .hero-m strong{font-family:'Outfit',sans-serif;font-weight:700;font-size:17px;color:var(--k);display:block;}
+    .section{padding:36px 32px 0;}
+    .sec-hd{display:flex;align-items:center;gap:12px;margin-bottom:24px;}
+    .sec-n{background:var(--k);color:var(--y);font-family:'Outfit',sans-serif;font-weight:900;font-size:11px;padding:4px 10px;letter-spacing:1px;}
+    .sec-t{font-family:'Outfit',sans-serif;font-weight:700;font-size:18px;letter-spacing:2px;color:var(--k);}
+    .tl{display:flex;flex-direction:column;border:1px solid var(--g5);}
+    .tl-row{display:grid;grid-template-columns:130px 1fr;border-bottom:1px solid var(--g5);}
+    .tl-row:last-child{border-bottom:none;}
+    .tl-time{background:var(--g7);padding:16px 18px;border-right:3px solid var(--k);font-family:'Outfit',sans-serif;font-weight:700;font-size:12px;color:var(--k);display:flex;align-items:center;line-height:1.5;}
+    .tl-time.red{border-right-color:var(--red);color:var(--red);background:#fff8f8;}
+    .tl-body{padding:14px 18px;}
+    .tl-label{font-weight:700;font-size:14px;color:var(--k);margin-bottom:5px;}
+    .tl-detail{font-size:12px;color:var(--g3);line-height:1.7;}
+    .tl-detail b{color:var(--k);}
+    .park{border:2px solid var(--k);padding:22px 24px;margin:20px 0 0;}
+    .park-t{font-family:'Outfit',sans-serif;font-weight:700;font-size:13px;letter-spacing:2px;margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+    .park-t::before{content:'P';background:var(--k);color:var(--y);font-size:13px;font-weight:900;width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;flex-shrink:0;}
+    .park-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+    .pi label{font-size:10px;letter-spacing:2px;color:var(--g4);display:block;margin-bottom:3px;text-transform:uppercase;}
+    .pi strong{font-size:14px;color:var(--k);font-weight:700;display:block;}
+    .pi small{font-size:11px;color:var(--g4);margin-top:2px;display:block;}
+    .warn-strip{background:var(--y);padding:10px 14px;margin-top:14px;font-size:12px;color:var(--k);font-weight:500;}
+    .band{display:flex;gap:1px;background:var(--g5);}
+    .band-item{flex:1;padding:14px 16px;background:var(--w);}
+    .band-time{font-family:'Outfit',sans-serif;font-weight:700;font-size:12px;color:var(--k);margin-bottom:8px;border-bottom:3px solid var(--y);padding-bottom:5px;}
+    .band-names{font-size:12px;color:var(--g2);line-height:1.8;}
+    .band-names b{display:block;font-size:9px;letter-spacing:2px;color:var(--g4);margin-top:8px;margin-bottom:2px;text-transform:uppercase;}
+    .att-table{width:100%;border-collapse:collapse;}
+    .att-table th{background:var(--k);color:var(--y);font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;padding:10px 14px;text-align:left;letter-spacing:1px;}
+    .att-table td{padding:10px 14px;font-size:12px;color:var(--g2);border-bottom:1px solid var(--g6);}
+    .att-table tr:last-child td{border-bottom:none;}
+    .att-table tr:hover td{background:var(--g7);}
+    .att-name{color:var(--k);font-weight:700;font-size:13px;}
+    .att-dept{font-size:10px;color:var(--g4);margin-top:1px;}
+    .chk{color:#2a8a2a;font-weight:700;text-align:center;}
+    .dash{color:var(--g5);text-align:center;}
+    .chip{background:var(--g6);border:1px solid var(--g5);font-size:10px;padding:2px 7px;display:inline-block;color:var(--k);margin-top:3px;}
+    .sup{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:1px;background:var(--g5);}
+    .sup-item{background:var(--w);padding:18px 18px 20px;border-top:3px solid var(--k);}
+    .sup-item.off{border-top-color:var(--g5);opacity:.4;}
+    .sup-q{font-family:'Outfit',sans-serif;font-weight:900;font-size:30px;line-height:1;color:var(--k);}
+    .sup-item.off .sup-q{text-decoration:line-through;color:var(--g4);}
+    .sup-u{font-size:11px;color:var(--g3);}
+    .sup-n{font-size:12px;color:var(--g2);margin-top:5px;}
+    .sup-note{font-size:10px;color:var(--g4);margin-top:3px;}
+    .pos-list{border:1px solid var(--g5);}
+    .pos-item{display:grid;grid-template-columns:1fr 72px;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid var(--g5);}
+    .pos-item:last-child{border-bottom:none;}
+    .pos-item:hover{background:var(--g7);}
+    .pos-zh{font-weight:700;font-size:14px;color:var(--k);}
+    .pos-en{font-size:11px;color:var(--g4);margin-top:2px;}
+    .pos-bp{background:var(--k);color:var(--y);font-size:11px;font-weight:700;padding:4px 10px;text-align:center;font-family:'Outfit',sans-serif;letter-spacing:1px;}
+    .it-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1px;background:var(--g5);}
+    .it-card{background:var(--w);padding:22px 22px 26px;border-top:4px solid var(--y);}
+    .it-card-num{font-family:'Outfit',sans-serif;font-weight:900;font-size:10px;letter-spacing:2px;color:var(--g4);margin-bottom:8px;}
+    .it-card-t{font-weight:700;font-size:15px;color:var(--k);margin-bottom:3px;}
+    .it-card-en{font-size:11px;color:var(--g4);margin-bottom:10px;}
+    .it-card-mentor{font-size:11px;color:var(--g3);margin-bottom:12px;padding:8px 10px;background:var(--g7);border-left:3px solid var(--k);line-height:1.6;}
+    .it-sec{font-size:10px;font-weight:700;letter-spacing:2px;color:var(--g4);text-transform:uppercase;margin:12px 0 6px;}
+    .it-list{list-style:none;padding:0;}
+    .it-list li{font-size:12px;color:var(--g2);line-height:1.6;padding-left:14px;position:relative;margin-bottom:3px;}
+    .it-list li::before{content:'—';position:absolute;left:0;color:var(--k);font-weight:700;}
+    .it-skills{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px;}
+    .skill{background:var(--g6);font-size:10px;padding:3px 8px;color:var(--k);font-family:'Outfit',sans-serif;border:1px solid var(--g5);}
+    .extra-pos{border:1px solid var(--g5);border-left:4px solid var(--y);padding:18px 20px;margin-top:16px;background:var(--g7);}
+    .extra-pos-t{font-weight:700;font-size:14px;color:var(--k);margin-bottom:8px;}
+    .extra-pos-body{font-size:12px;color:var(--g3);line-height:1.8;}
+    .extra-pos-body b{color:var(--k);}
+    .notice-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--g5);}
+    .n-card{background:var(--w);padding:20px 20px 24px;}
+    .n-card.yel{border-top:3px solid var(--y);}
+    .n-card.blk{border-top:3px solid var(--k);}
+    .n-card.red-t{border-top:3px solid var(--red);}
+    .n-tag{font-size:10px;font-weight:700;letter-spacing:2px;color:var(--g4);margin-bottom:8px;text-transform:uppercase;}
+    .n-title{font-weight:700;font-size:15px;color:var(--k);margin-bottom:10px;}
+    .n-body{font-size:12px;color:var(--g3);line-height:1.8;}
+    .n-body b{color:var(--k);}
+    .sublabel{font-size:10px;font-weight:700;letter-spacing:2px;color:var(--g4);margin-bottom:12px;text-transform:uppercase;}
+    .div{height:1px;background:var(--g5);margin:36px 32px 0;}
+    .footer{background:var(--k);padding:20px 32px;display:flex;justify-content:space-between;align-items:center;margin-top:60px;}
+    .footer-l{font-family:'Outfit',sans-serif;font-weight:900;font-size:12px;letter-spacing:3px;color:var(--y);}
+    .footer-r{font-size:11px;color:#555;text-align:right;line-height:1.7;}
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="logo">ALP<em> ·</em></div>
+    <div class="tag">3/27 台科大校園徵才博覽會</div>
+  </div>
+
+  <div class="hero">
+    <div class="hero-eyebrow">ALLY LOGISTIC PROPERTY ／ 永聯物流開發</div>
+    <div class="hero-h">2026 台科大<br><span>校園徵才博覽會</span></div>
+    <div class="hero-divider"></div>
+    <div class="hero-meta">
+      <div class="hero-m"><label>活動日期</label><strong>2026.03.27 FRI</strong></div>
+      <div class="hero-m"><label>攤位</label><strong>185 · A 區</strong></div>
+      <div class="hero-m"><label>活動時間</label><strong>10:00 – 16:00</strong></div>
+      <div class="hero-m"><label>場佈時間</label><strong>09:00 開始</strong></div>
+      <div class="hero-m"><label>出席人員</label><strong>15 人</strong></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-hd"><div class="sec-n">01</div><div class="sec-t">集合時間 · 交通 · 停車</div></div>
+    <div class="tl">
+      <div class="tl-row">
+        <div class="tl-time">08:00<br>公司集合</div>
+        <div class="tl-body"><div class="tl-label">Jeff、Lewis — 公司停車場出發</div><div class="tl-detail">開車攜帶 iMac 等設備</div></div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-time">08:00–10:00</div>
+        <div class="tl-body"><div class="tl-label">車輛入校卸貨</div><div class="tl-detail">攤位 185 → <b>A 區</b>，卸貨點：<b>研揚大樓路邊</b>，卸完立即離場</div></div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-time">09:00<br>HR 到場</div>
+        <div class="tl-body"><div class="tl-label">HR 全員到攤位 185 · 場佈</div><div class="tl-detail"><b>Tina、Jenny、Winny、Lewis、Daniel</b></div></div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-time">10:00<br>各部門到場</div>
+        <div class="tl-body"><div class="tl-label">活動開始 · 各部門依班別時間抵達</div><div class="tl-detail"><b>Deven、Cindy（AXL）、Shawn（ASC）、Sandy（IT）、Anna（BD）、Allen（OM）、Sean Chao、Charlies Kuo（TEL）</b></div></div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-time red">10:00–16:00</div>
+        <div class="tl-body"><div class="tl-label" style="color:var(--red)">⚠️ 車輛禁止入校</div><div class="tl-detail">活動期間請勿嘗試開車進入校園</div></div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-time">16:00<br>撤場</div>
+        <div class="tl-body"><div class="tl-label">活動結束 · HR 協助撤場</div><div class="tl-detail">16:00 後車輛再次允許入校</div></div>
+      </div>
+    </div>
+    <div class="park">
+      <div class="park-t">停車資訊</div>
+      <div class="park-grid">
+        <div class="pi"><label>建議停車場</label><strong>台大公館平面停車場</strong><small>（公館二活停車場）</small></div>
+        <div class="pi"><label>地址</label><strong>台北市大安區羅斯福路4段85號</strong><small>台大學生第二活動中心旁</small></div>
+        <div class="pi"><label>臨停費率</label><strong>每小時 30 元</strong><small>以現場公告為準</small></div>
+        <div class="pi"><label>繳費注意</label><strong>記得輸入公司統編</strong><small>永聯物流開發：54642712</small></div>
+      </div>
+      <div class="warn-strip">⚠️ 3/27 台科大校方不開放廠商停車。車輛僅限 08:00–10:00 臨停卸貨，卸完立即離場。</div>
+    </div>
+  </div>
+
+  <div class="div"></div>
+
+  <div class="section">
+    <div class="sec-hd"><div class="sec-n">02</div><div class="sec-t">當日排班 · 三時段</div></div>
+    <div class="band">
+      <div class="band-item">
+        <div class="band-time">10:00 – 12:00</div>
+        <div class="band-names"><b>接洽</b>Deven（AXL）<br>Cindy（AXL）<br>Sandy（IT）<br>Anna（BD）<br>Allen（OM）<br>Sean Chao（TEL）<b>HR</b>Jeff、Tina、Jenny</div>
+      </div>
+      <div class="band-item">
+        <div class="band-time">12:00 – 14:00</div>
+        <div class="band-names"><b>接洽</b>Deven（AXL）<br>Cindy（AXL）<br>Shawn（ASC）<br>Allen（OM）<br>Charlies Kuo（TEL）<b>HR</b>Winny、Lewis、Daniel</div>
+      </div>
+      <div class="band-item">
+        <div class="band-time">14:00 – 16:00</div>
+        <div class="band-names"><b>接洽</b>Shawn（ASC）<br>Sandy（IT）<br>Anna（BD）<br>Sean Chao（TEL）<br>Charlies Kuo（TEL）<b>HR</b>Tina、Jenny、Winny<br>Lewis、Daniel</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="div"></div>
+
+  <div class="section">
+    <div class="sec-hd"><div class="sec-n">03</div><div class="sec-t">個人出勤總覽</div></div>
+    <div style="overflow-x:auto;">
+    <table class="att-table">
+      <thead><tr><th>姓名</th><th>部門</th><th style="text-align:center">10–12</th><th style="text-align:center">12–14</th><th style="text-align:center">14–16</th><th>額外任務</th><th>備註</th></tr></thead>
+      <tbody>
+        <tr><td><div class="att-name">Jeff</div><div class="att-dept">HR 總召</div></td><td>HR</td><td class="chk">✓</td><td class="chk">✓</td><td class="dash">—</td><td>—</td><td style="font-size:11px;color:var(--g4)">08:00 集合＋場佈/撤場</td></tr>
+        <tr><td><div class="att-name">Tina</div><div class="att-dept">HR</div></td><td>HR</td><td class="chk">✓</td><td class="dash">—</td><td class="chk">✓</td><td>—</td><td style="font-size:11px;color:var(--g4)">09:00＋場佈/撤場</td></tr>
+        <tr><td><div class="att-name">Jenny</div><div class="att-dept">HR</div></td><td>HR</td><td class="chk">✓</td><td class="dash">—</td><td class="chk">✓</td><td>—</td><td style="font-size:11px;color:var(--g4)">09:00＋場佈/撤場</td></tr>
+        <tr><td><div class="att-name">Winny</div><div class="att-dept">HR</div></td><td>HR</td><td class="dash">—</td><td class="chk">✓</td><td class="chk">✓</td><td><span class="chip">訂午餐 · 備水喉糖</span></td><td style="font-size:11px;color:var(--g4)">09:00＋場佈/撤場</td></tr>
+        <tr><td><div class="att-name">Lewis</div><div class="att-dept">HR</div></td><td>HR</td><td class="dash">—</td><td class="chk">✓</td><td class="chk">✓</td><td><span class="chip">訂午餐 · 備水喉糖</span></td><td style="font-size:11px;color:var(--g4)">08:00 集合＋場佈/撤場</td></tr>
+        <tr><td><div class="att-name">Daniel</div><div class="att-dept">HR</div></td><td>HR</td><td class="dash">—</td><td class="chk">✓</td><td class="chk">✓</td><td><span class="chip">聯繫各班別主管</span></td><td style="font-size:11px;color:var(--g4)">09:00＋場佈/撤場</td></tr>
+        <tr><td><div class="att-name">Deven</div><div class="att-dept">AXL</div></td><td>AXL</td><td class="chk">✓</td><td class="chk">✓</td><td class="dash">—</td><td>—</td><td style="font-size:11px;color:var(--g4)">依班別時間到場</td></tr>
+        <tr><td><div class="att-name">Cindy</div><div class="att-dept">AXL</div></td><td>AXL</td><td class="chk">✓</td><td class="chk">✓</td><td class="dash">—</td><td>—</td><td style="font-size:11px;color:var(--g4)">依班別時間到場</td></tr>
+        <tr><td><div class="att-name">Shawn</div><div class="att-dept">ASC</div></td><td>ASC</td><td class="dash">—</td><td class="chk">✓</td><td class="chk">✓</td><td>—</td><td style="font-size:11px;color:var(--g4)">依班別時間到場</td></tr>
+        <tr><td><div class="att-name">Sandy</div><div class="att-dept">IT</div></td><td>IT</td><td class="chk">✓</td><td class="dash">—</td><td class="chk">✓</td><td>—</td><td style="font-size:11px;color:var(--g4)">依班別時間到場</td></tr>
+        <tr><td><div class="att-name">Anna</div><div class="att-dept">BD</div></td><td>BD</td><td class="chk">✓</td><td class="dash">—</td><td class="chk">✓</td><td>—</td><td style="font-size:11px;color:var(--g4)">依班別時間到場</td></tr>
+        <tr><td><div class="att-name">Allen</div><div class="att-dept">OM</div></td><td>OM</td><td class="chk">✓</td><td class="chk">✓</td><td class="dash">—</td><td>—</td><td style="font-size:11px;color:var(--g4)">依班別時間到場</td></tr>
+        <tr><td><div class="att-name">Sean Chao</div><div class="att-dept">TEL</div></td><td>TEL</td><td class="chk">✓</td><td class="dash">—</td><td class="chk">✓</td><td>—</td><td style="font-size:11px;color:var(--g4)">依班別時間到場</td></tr>
+        <tr><td><div class="att-name">Charlies Kuo</div><div class="att-dept">TEL</div></td><td>TEL</td><td class="dash">—</td><td class="chk">✓</td><td class="chk">✓</td><td>—</td><td style="font-size:11px;color:var(--g4)">依班別時間到場</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div style="padding:10px 0 0;font-size:11px;color:var(--g4)">💻 公用電腦：現場備有一台，遇到合適人選請直接進後台做即時註記</div>
+    <div style="padding:6px 0 0;font-size:11px;color:var(--g4)">🍱 午餐：Winny &amp; Lewis 負責訂外送（共 15 人），記得打公司統編 <b style="color:var(--k)">54642712</b></div>
+  </div>
+
+  <div class="div"></div>
+
+  <div class="section">
+    <div class="sec-hd"><div class="sec-n">04</div><div class="sec-t">物資清單</div></div>
+    <div class="sup">
+      <div class="sup-item"><div class="sup-q">400<span class="sup-u"> 張</span></div><div class="sup-n">職缺 DM</div></div>
+      <div class="sup-item"><div class="sup-q">200<span class="sup-u"> 個</span></div><div class="sup-n">ALP 不織布提袋</div><div class="sup-note">BM 重新製作</div></div>
+      <div class="sup-item"><div class="sup-q">300<span class="sup-u"> 支</span></div><div class="sup-n">ALP 黑筆</div><div class="sup-note">BM 重新製作</div></div>
+      <div class="sup-item off"><div class="sup-q">0</div><div class="sup-n">杯套</div><div class="sup-note">本次不提供</div></div>
+      <div class="sup-item"><div class="sup-q">1<span class="sup-u"> 台</span></div><div class="sup-n">iMac + 螢幕</div><div class="sup-note">Jeff &amp; Lewis 攜帶</div></div>
+      <div class="sup-item"><div class="sup-q">1<span class="sup-u"> 台</span></div><div class="sup-n">公用電腦</div><div class="sup-note">供現場後台註記用</div></div>
+      <div class="sup-item"><div class="sup-q">3<span class="sup-u"> 台</span></div><div class="sup-n">iPad</div></div>
+      <div class="sup-item"><div class="sup-q">3<span class="sup-u"> 塊</span></div><div class="sup-n">背板</div><div class="sup-note">廠商 3/27 早上安裝</div></div>
+      <div class="sup-item"><div class="sup-q">2<span class="sup-u"> 條</span></div><div class="sup-n">ALP 桌巾</div><div class="sup-note">請先燙平</div></div>
+    </div>
+  </div>
+
+  <div class="div"></div>
+
+  <div class="section">
+    <div class="sec-hd"><div class="sec-n">05</div><div class="sec-t">徵才職位</div></div>
+    <div class="sublabel">▎ 正職職位</div>
+    <div class="pos-list">
+      <div class="pos-item"><div><div class="pos-zh">智慧物流解決方案規劃師</div><div class="pos-en">Smart Logistics Solution Planner</div></div><div class="pos-bp">Tina</div></div>
+      <div class="pos-item"><div><div class="pos-zh">自動化設備工程師</div><div class="pos-en">Automation Equipment Engineer</div></div><div class="pos-bp">Tina</div></div>
+      <div class="pos-item"><div><div class="pos-zh">JAVA 後端程式設計師</div><div class="pos-en">Backend Engineer</div></div><div class="pos-bp">Jeff</div></div>
+      <div class="pos-item"><div><div class="pos-zh">業務發展專員</div><div class="pos-en">Business Development Specialist</div></div><div class="pos-bp">Winny</div></div>
+      <div class="pos-item"><div><div class="pos-zh">財會助理</div><div class="pos-en">Finance Accounting Assistant</div></div><div class="pos-bp">Winny</div></div>
+      <div class="pos-item"><div><div class="pos-zh">經營策略研究員</div><div class="pos-en">Business Strategy Analyst</div></div><div class="pos-bp">Tina</div></div>
+      <div class="pos-item"><div><div class="pos-zh">海外建築規劃專案</div><div class="pos-en">Architectural Project Designer</div></div><div class="pos-bp">Tina</div></div>
+      <div class="pos-item"><div><div class="pos-zh">網管工程師</div><div class="pos-en">Infra Engineer</div></div><div class="pos-bp">Jeff</div></div>
+    </div>
+    <div class="sublabel" style="margin-top:28px;">▎ IT 實習職位</div>
+    <div class="it-cards">
+      <div class="it-card">
+        <div class="it-card-num">IT INTERN · 01 · 2位</div>
+        <div class="it-card-t">軟體開發實習生</div>
+        <div class="it-card-en">Software Engineer Intern</div>
+        <div class="it-card-mentor">由資深工程師一對一擔任 Mentor，帶領參與物流資訊系統開發</div>
+        <div class="it-sec">實習內容</div>
+        <ul class="it-list">
+          <li>協助開發與維護 ALP 內部營運系統（Web / App）</li>
+          <li>參與 API 串接測試（WMS 倉儲或客戶 ERP 對接）</li>
+          <li>協助前端介面優化（UI / UX）</li>
+          <li>撰寫技術文件與系統操作手冊</li>
+        </ul>
+        <div class="it-sec">建議技能</div>
+        <div class="it-skills"><span class="skill">Python / Java / C#</span><span class="skill">HTML / CSS / JS</span><span class="skill">React / Vue</span><span class="skill">Git</span></div>
+      </div>
+      <div class="it-card">
+        <div class="it-card-num">IT INTERN · 02 · 1位</div>
+        <div class="it-card-t">數據分析實習生</div>
+        <div class="it-card-en">Data Analyst Intern</div>
+        <div class="it-card-mentor">由資深工程師擔任 Mentor，協助物流數據分析與視覺化專案</div>
+        <div class="it-sec">實習內容</div>
+        <ul class="it-list">
+          <li>協助物流數據清洗、整合與分析</li>
+          <li>製作 KPI 儀表板協助業務決策</li>
+          <li>挖掘供應鏈流程異常與優化機會</li>
+          <li>撰寫數據分析報告與視覺化呈現</li>
+        </ul>
+        <div class="it-sec">建議技能</div>
+        <div class="it-skills"><span class="skill">SQL</span><span class="skill">Python (Pandas/NumPy)</span><span class="skill">Power BI / Tableau</span><span class="skill">Excel</span></div>
+      </div>
+      <div class="it-card">
+        <div class="it-card-num">IT INTERN · 03 · 1位</div>
+        <div class="it-card-t">容器平台服務監控維運實習生</div>
+        <div class="it-card-en">SRE Intern</div>
+        <div class="it-card-mentor">由資深工程師擔任 Mentor，專注雲端原生架構與 SRE 維運實戰</div>
+        <div class="it-sec">實習內容</div>
+        <ul class="it-list">
+          <li>實作容器化應用（Docker、Kubernetes）部署與伸縮</li>
+          <li>參與監控系統優化，包含告警規則與儀表開發</li>
+          <li>協助撰寫技術操作手冊與故障排除指南</li>
+        </ul>
+        <div class="it-sec">徵才條件</div>
+        <div class="it-skills"><span class="skill">Docker / Kubernetes</span><span class="skill">雲端服務基礎概念</span><span class="skill">Linux 操作</span><span class="skill">資訊相關科系佳</span></div>
+      </div>
+    </div>
+    <div style="padding:10px 0 0;font-size:11px;color:var(--g4)">IT 實習共 4 位 ｜ 每週至少 3 天 ｜ 預計 2026/04–2026/06 ｜ 國立大學大四或碩二優先 ｜ 表現優異者優先轉正</div>
+    <div class="sublabel" style="margin-top:24px;">▎ 一般實習職位</div>
+    <div class="pos-list">
+      <div class="pos-item" style="border-left:3px solid var(--y)">
+        <div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:2px;color:var(--g4);margin-bottom:4px">INTERNSHIP</div>
+          <div class="pos-zh">實習生（各部門）</div>
+          <div class="pos-en">半年以上優先 ｜ 每週至少三天</div>
+        </div>
+        <div class="pos-bp">HR</div>
+      </div>
+    </div>
+    <div class="extra-pos">
+      <div class="extra-pos-t">若同學詢問其他職缺或實習機會</div>
+      <div class="extra-pos-body">請邀請同學填寫問卷，並引導追蹤我們的 <b>104 職缺專頁</b>，關注未來持續更新的新職缺。<br>➜ 搜尋「<b>永聯物流開發</b>」即可找到我們在 104 上的公司頁面。</div>
+    </div>
+  </div>
+
+  <div class="div"></div>
+
+  <div class="section" style="padding-bottom:0">
+    <div class="sec-hd"><div class="sec-n">06</div><div class="sec-t">注意事項</div></div>
+    <div class="notice-grid">
+      <div class="n-card yel">
+        <div class="n-tag">DRESS CODE</div>
+        <div class="n-title">穿著</div>
+        <div class="n-body">ALP T-shirt ＋ 牛仔褲<br>外套可露出 ALP Logo<br>注意保暖</div>
+      </div>
+      <div class="n-card blk">
+        <div class="n-tag">PARKING</div>
+        <div class="n-title">停車</div>
+        <div class="n-body">台科大當日不開放停車<br><b>台大公館平面停車場</b><br>羅斯福路4段85號｜<b>30元/小時</b><br>統編：<b>54642712</b></div>
+      </div>
+      <div class="n-card red-t">
+        <div class="n-tag">VEHICLE</div>
+        <div class="n-title">卸貨動線</div>
+        <div class="n-body">攤位 185 → A 區<br>卸貨點：<b>研揚大樓路邊</b><br>卸完立即離場<br>請列印車輛入場辨識文件</div>
+      </div>
+      <div class="n-card yel">
+        <div class="n-tag">MEAL</div>
+        <div class="n-title">午餐安排</div>
+        <div class="n-body">當天訂外送（共 15 人）<br>記得打公司統編 <b>54642712</b><br><b>Winny &amp; Lewis</b> 負責</div>
+      </div>
+      <div class="n-card blk">
+        <div class="n-tag">SYSTEM</div>
+        <div class="n-title">公用電腦 · 後台</div>
+        <div class="n-body">現場備有一台公用電腦<br>遇到合適人選請<b>即時進後台做註記</b><br>勿等到活動結束後才補登</div>
+      </div>
+      <div class="n-card blk">
+        <div class="n-tag">CHECKIN</div>
+        <div class="n-title">行前必辦</div>
+        <div class="n-body">行前調查表單已完成 ✓<br>車牌已提供校方 ✓<br>下載並列印車輛入場辨識文件<br>到場後先至服務台簽到領 QR Code</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-l">ALP · CHANGE FOR BETTER</div>
+    <div class="footer-r">www.alp.global ｜ 104 搜尋「永聯物流開發」<br>統編 54642712</div>
+  </div>
+
+</body>
+</html>
